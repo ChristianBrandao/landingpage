@@ -30,7 +30,7 @@ jobs:
           path: dist/
 
       - name: Enviar arquivos via SFTP para Hostinger
-        uses: pressidium/lftp-mirror-action@v1.0.2
+        uses: pressidium/lftp-mirror-action@v1
         with:
           host: ${{ secrets.SFTP_HOST }}
           port: ${{ secrets.SFTP_PORT }}
