@@ -28,3 +28,14 @@ jobs:
         with:
           name: build
           path: dist/
+
+      - name: Enviar arquivos via SFTP para Hostinger
+        uses: pressidium/lftp-mirror-action@v1.0.2
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          user: ${{ secrets.SFTP_USER }}
+          pass: ${{ secrets.SFTP_PASS }}
+          localDir: dist
+          remoteDir: public_html
+          options: --reverse --delete --verbose
