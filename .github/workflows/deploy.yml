@@ -1,11 +1,12 @@
-name: Build com Vite
+name: Deploy Hostinger via SFTP (somente build)
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +16,7 @@ jobs:
       - name: 🧱 Instalar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: 📦 Instalar dependências
         run: npm install
@@ -23,19 +24,13 @@ jobs:
       - name: 🔨 Rodar build do Vite
         run: npm run build
 
-      - name: 📤 Salvar pasta dist como artefato
-        uses: actions/upload-artifact@v4
+      - name: 🚀 Enviar build para a Hostinger (somente pasta dist/)
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
         with:
-          name: build
-          path: dist/
-
-      - name: Enviar arquivos via SFTP para Hostinger
-        uses: pressidium/lftp-mirror-action@v1
-        with:
-          host: ${{ secrets.SFTP_HOST }}
+          server: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          protocol: sftp
           port: ${{ secrets.SFTP_PORT }}
-          user: ${{ secrets.SFTP_USER }}
-          pass: ${{ secrets.SFTP_PASS }}
-          localDir: dist
-          remoteDir: public_html
-          options: --only-newer --verbose
+          local-dir: dist
+          server-dir: public_html
