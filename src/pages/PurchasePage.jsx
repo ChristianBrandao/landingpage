@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+// src/pages/PurchasePage.jsx
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { Minus, Plus, Zap, Star, ShieldCheck } from 'lucide-react';
+import { Minus, Plus, Zap, Star, ShieldCheck, Copy } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'; // PASSO 1: Importar o useNavigate
 
 const quantityOptions = [
     { amount: 10, price: 10, bonus: 'Nenhum', popular: false },
@@ -17,10 +19,14 @@ const PurchasePage = () => {
   const [quantity, setQuantity] = useState(50);
   const [customQuantity, setCustomQuantity] = useState(1);
   const [isCustom, setIsCustom] = useState(false);
+  const [pixData, setPixData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate(); // PASSO 1: Inicializar o hook useNavigate
 
   const handleSelectQuantity = (amount) => {
     setQuantity(amount);
     setIsCustom(false);
+    setPixData(null); // Reseta o Pix ao mudar a quantidade
   };
 
   const handleCustomQuantityChange = (change) => {
@@ -28,15 +34,89 @@ const PurchasePage = () => {
     if (newQuantity >= 1) {
       setCustomQuantity(newQuantity);
       setQuantity(newQuantity);
+      setPixData(null); // Reseta o Pix ao mudar a quantidade
     }
   };
 
-  const handlePurchase = () => {
-    toast({
-      title: "🚧 Pagamento em desenvolvimento!",
-      description: `Você está comprando ${quantity} número(s). O checkout será implementado em breve! 🚀`,
-    });
+  const handlePurchase = async () => {
+    setIsLoading(true);
+    setPixData(null);
+
+    try {
+      // PASSO 2: Chamar o backend real na porta 3001
+      const response = await fetch('http://localhost:3001/api/create-pix-payment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          quantity,
+          amount: quantity.toFixed(2),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao gerar o Pix. Tente novamente.');
+      }
+
+      const data = await response.json();
+      setPixData(data);
+      
+      toast({
+        title: "✅ Pix gerado com sucesso!",
+        description: "Agora, pague com o QR Code ou código para garantir seus números.",
+      });
+
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "❌ Erro no pagamento",
+        description: "Não foi possível gerar o Pix. Por favor, tente novamente mais tarde.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  const handleCopyPixCode = () => {
+    // Implemente a lógica de cópia de texto aqui
+    if(pixData && pixData.pix_code) {
+        navigator.clipboard.writeText(pixData.pix_code);
+        toast({
+            title: "Código Copiado!",
+            description: "O código Pix foi copiado para a área de transferência.",
+        });
+    } else {
+        toast({
+            title: "Erro ao copiar",
+            description: "Nenhum código Pix para copiar.",
+            variant: "destructive"
+        });
+    }
+  };
+
+  // PASSO 3: Efeito para fazer o polling após o Pix ser gerado
+  useEffect(() => {
+    // Apenas executa se houver dados do Pix
+    if (!pixData || !pixData.paymentId) return;
+
+    const interval = setInterval(async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/api/check-payment-status/${pixData.paymentId}`);
+        const data = await response.json();
+
+        // Se o status do pagamento for 'approved'
+        if (data.status === 'approved') {
+          clearInterval(interval);
+          navigate('/compra-concluida'); // Redireciona para a página de sucesso
+        }
+      } catch (error) {
+        console.error('Erro no polling do pagamento:', error);
+      }
+    }, 5000); // Consulta a cada 5 segundos
+
+    // Limpa o intervalo quando o componente é desmontado
+    return () => clearInterval(interval);
+  }, [pixData, navigate]);
 
   return (
     <>
@@ -147,13 +227,44 @@ const PurchasePage = () => {
                     </div>
                 </div>
 
-                <Button 
-                    onClick={handlePurchase}
-                    size="lg"
-                    className="w-full gradient-gold text-black font-bold py-4 rounded-full text-lg hover-lift pulse-gold flex items-center gap-2"
-                >
-                  <Zap size={20} /> PAGAR COM PIX
-                </Button>
+                {pixData ? (
+                  <div className="space-y-4 text-center">
+                    <img src={pixData.qr_code} alt="QR Code Pix" className="mx-auto w-48 h-48 rounded-lg border-2 border-yellow-500/50" />
+                    <p className="text-gray-300">Escaneie o QR Code ou copie o código Pix abaixo:</p>
+                    <div className="flex items-center bg-gray-800/70 p-3 rounded-lg border border-yellow-500/30">
+                        <Input 
+                            value={pixData.pix_code} 
+                            readOnly 
+                            className="border-none bg-transparent text-white w-full"
+                        />
+                        <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            onClick={handleCopyPixCode}
+                            className="text-yellow-500 hover:bg-gray-700"
+                        >
+                            <Copy className="h-4 w-4" />
+                        </Button>
+                    </div>
+                    <div className="text-gray-500 text-sm">
+                        <p>Aguardando a confirmação do pagamento...</p>
+                        <p>Você será redirecionado automaticamente.</p>
+                    </div>
+                  </div>
+                ) : (
+                  <Button 
+                      onClick={handlePurchase}
+                      size="lg"
+                      disabled={isLoading}
+                      className="w-full gradient-gold text-black font-bold py-4 rounded-full text-lg hover-lift pulse-gold flex items-center gap-2"
+                  >
+                    {isLoading ? 'Gerando Pix...' : (
+                        <>
+                            <Zap size={20} /> PAGAR COM PIX
+                        </>
+                    )}
+                  </Button>
+                )}
               </div>
             </div>
           </div>
