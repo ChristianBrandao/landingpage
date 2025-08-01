@@ -1,4 +1,4 @@
-name: Deploy Hostinger via SFTP (somente build)
+name: Gerar Build do Projeto
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,14 +23,9 @@ jobs:
 
       - name: 🔨 Rodar build do Vite
         run: npm run build
-
-      - name: 🚀 Enviar build para a Hostinger (somente pasta dist/)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.1
+      
+      - name: 🚀 Salvar o build como um artefato
+        uses: actions/upload-artifact@v3
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}
-          protocol: ftp
-          port: ${{ secrets.SFTP_PORT }}
-          local-dir: dist/
-          server-dir: public_html/
+          name: landingpage-build-dist
+          path: dist/
