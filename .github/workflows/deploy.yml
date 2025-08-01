@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: 📥 Clonar repositório
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Versão atualizada
 
       - name: 🧱 Instalar Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # Versão atualizada
         with:
           node-version: 18
 
@@ -25,7 +25,7 @@ jobs:
         run: npm run build
       
       - name: 🚀 Salvar o build como um artefato
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # Versão atualizada
         with:
           name: landingpage-build-dist
           path: dist/
