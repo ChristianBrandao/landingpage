@@ -44,7 +44,7 @@ const PurchasePage = () => {
 
     try {
       // PASSO 2: Chamar o backend real na porta 3001
-      const response = await fetch('http://localhost:3001/api/create-pix-payment', {
+      const response = await fetch('https://backend-pix-r074.onrender.com/api/create-pix-payment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -101,7 +101,7 @@ const PurchasePage = () => {
 
     const interval = setInterval(async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/check-payment-status/${pixData.paymentId}`);
+        const response = await fetch('https://backend-pix-r074.onrender.com/api/check-payment-status/${pixData.paymentId}');
         const data = await response.json();
 
         // Se o status do pagamento for 'approved'
