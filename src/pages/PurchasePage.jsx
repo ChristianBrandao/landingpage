@@ -9,10 +9,10 @@ import { Minus, Plus, Zap, Star, ShieldCheck, Copy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom'; // PASSO 1: Importar o useNavigate
 
 const quantityOptions = [
-    { amount: 10, price: 10, bonus: 'Nenhum', popular: false },
-    { amount: 20, price: 20, bonus: '+ 2x chances', popular: false },
-    { amount: 50, price: 50, bonus: '+ 5x chances', popular: true },
-    { amount: 100, price: 100, bonus: '+ 10x chances', popular: false },
+    { amount: 10, price: 5, bonus: 'Nenhum', popular: false },
+    { amount: 20, price: 10, bonus: '+ 2x chances', popular: false },
+    { amount: 50, price: 25, bonus: '+ 5x chances', popular: true },
+    { amount: 100, price: 50, bonus: '+ 10x chances', popular: false },
 ];
 
 const PurchasePage = () => {
