@@ -7,12 +7,12 @@ const OrganizerSection = () => {
   const stats = [
     {
       icon: <DollarSign className="w-8 h-8 text-yellow-500" />,
-      value: "R$ 100.000+",
+      value: "R$ 10.000+",
       label: "Pagos em prêmios"
     },
     {
       icon: <Users className="w-8 h-8 text-yellow-500" />,
-      value: "500+",
+      value: "20+",
       label: "Ganhadores felizes"
     },
     {
@@ -48,8 +48,10 @@ const OrganizerSection = () => {
             <div className="bg-gray-900/50 p-8 rounded-2xl border border-yellow-500/30">
               <h3 className="text-2xl font-bold mb-4 text-white">Lucas Barbosa</h3>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                Meu nome é Lucas Barbosa, criador do Pix da Sorte, um projeto sério para transformar vidas com prêmios reais. 
-                Já são mais de R$ 100.000 pagos em prêmios e centenas de ganhadores felizes.
+                  E aí, pessoal! Meu nome é REMP, e eu sou o criador do Pix da Sorte. 
+                  Meu objetivo é simples: mudar vidas com prêmios de verdade. 
+                  Já fizemos muitos ganhadores felizes, e nosso compromisso é continuar crescendo e transformando a vida de cada vez mais gente. 
+                  É um projeto sério, feito para você!
               </p>
               <div className="flex items-center space-x-2 text-gray-300">
                 <MapPin className="w-5 h-5 text-yellow-500" />

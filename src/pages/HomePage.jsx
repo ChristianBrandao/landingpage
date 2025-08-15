@@ -12,8 +12,8 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Pix da Sorte - R$ 20.000 + CNH Grátis por apenas R$1</title>
-        <meta name="description" content="Concorra a R$ 20.000 em dinheiro e CNH grátis com apenas R$1! O sorteio mais confiável e transparente do Brasil. Participe agora do Pix da Sorte!" />
+        <title>Pix da Sorte | Concorra a R$ 20.000 e CNH Grátis</title>
+        <meta name="description" content="Participe do sorteio Pix da Sorte e concorra a R$ 20.000 em dinheiro e uma CNH grátis. Invista apenas R$ 0,20 e concorra a prêmios incríveis" />
       </Helmet>
       <HeroSection />
       <AboutSection />

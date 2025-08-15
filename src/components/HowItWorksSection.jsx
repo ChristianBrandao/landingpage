@@ -8,7 +8,7 @@ const HowItWorksSection = () => {
     {
       icon: <ShoppingCart className="w-10 h-10 text-black" />,
       title: "Escolha seus números",
-      description: "Escolha quantos números da sorte quer comprar (mínimo R$1 cada)"
+      description: "Escolha quantos números da sorte quer comprar (cada um custa apenas R$0,20)."
     },
     {
       icon: <CreditCard className="w-10 h-10 text-black" />,

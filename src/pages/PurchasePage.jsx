@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { Minus, Plus, Zap, Star, ShieldCheck, Copy, Mail } from 'lucide-react';
+import { Minus, Plus, Zap, Star, ShieldCheck, Copy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const quantityOptions = [
-    { amount: 10, price: 1, bonus: 'Nenhum', popular: false },
-    { amount: 20, price: 2, bonus: '+ 2x chances', popular: false },
-    { amount: 50, price: 5, bonus: '+ 5x chances', popular: true },
-    { amount: 100, price: 10, bonus: '+ 10x chances', popular: false },
+    { amount: 10, price: 2, bonus: 'Nenhum', popular: false },
+    { amount: 20, price: 4, bonus: '+ 2x chances', popular: false },
+    { amount: 50, price: 10, bonus: '+ 5x chances', popular: true },
+    { amount: 100, price: 20, bonus: '+ 10x chances', popular: false },
 ];
 
 const PurchasePage = () => {
@@ -20,13 +20,12 @@ const PurchasePage = () => {
   const [isCustom, setIsCustom] = useState(false);
   const [pixData, setPixData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
   const navigate = useNavigate();
 
   // Função auxiliar para encontrar o preço
   const getPrice = (amount) => {
     const option = quantityOptions.find(opt => opt.amount === amount);
-    return option ? option.price : amount * 0.10;
+    return option ? option.price : amount * 0.20; // Preço de 10 centavos por número para quantidade personalizada
   };
 
   const handleSelectQuantity = (amount) => {
@@ -45,15 +44,6 @@ const PurchasePage = () => {
   };
 
   const handlePurchase = async () => {
-    if (!userEmail || !userEmail.includes('@') || !userEmail.includes('.')) {
-        toast({
-            title: "Email inválido",
-            description: "Por favor, insira um endereço de email válido.",
-            variant: "destructive"
-        });
-        return;
-    }
-
     setIsLoading(true);
     setPixData(null);
 
@@ -65,8 +55,7 @@ const PurchasePage = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           quantity,
-          amount: price.toFixed(2),
-          email: userEmail
+          amount: price.toFixed(2), // Usa o preço correto
         }),
       });
 
@@ -141,7 +130,7 @@ const PurchasePage = () => {
     <>
       <Helmet>
         <title>Comprar Números - Pix da Sorte</title>
-        <meta name="description" content="Garanta seus números da sorte agora e concorra a R$ 20.000 + CNH grátis. Pagamento rápido e seguro via Pix." />
+        <meta name="description" content="Garanta seus números da sorte agora e concorra a R$ 2.000 + CNH grátis. Pagamento rápido e seguro via Pix." />
       </Helmet>
       <div className="bg-black bg-pattern pt-32 pb-24">
         <div className="container mx-auto px-4">
@@ -225,19 +214,6 @@ const PurchasePage = () => {
               {/* Checkout Summary */}
               <div className="space-y-6 flex flex-col">
                  <h2 className="text-2xl font-bold text-white mb-4">2. Finalizar Compra</h2>
-                 <div className="flex flex-col gap-4">
-                    <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" />
-                        <Input
-                            type="email"
-                            placeholder="Seu email para receber os números"
-                            value={userEmail}
-                            onChange={(e) => setUserEmail(e.target.value)}
-                            className="pl-10 text-white bg-gray-800/70 border-yellow-500/30"
-                        />
-                    </div>
-                 </div>
-
                   <div className="bg-gray-800/70 p-6 rounded-xl border border-yellow-500/30 text-white flex-grow flex flex-col justify-between">
                      <div>
                          <p className="text-center text-lg text-gray-300 mb-4">Você está comprando</p>

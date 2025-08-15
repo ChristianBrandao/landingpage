@@ -8,18 +8,18 @@ const TestimonialsSection = () => {
     {
       name: "Maria",
       location: "RJ",
-      message: "Ganhei R$ 1.000 no Pix da Sorte e nem acreditei! Super rápido e confiável!",
+      message: "Ganhei R$ 2.000 no Pix da Sorte e nem acreditei! Super rápido e confiável!",
       rating: 5
     },
     {
       name: "Carlos",
-      location: "SP", 
-      message: "Participei com 5 números por R$5 e levei R$10.000! Recomendo demais.",
+      location: "RJ", 
+      message: "Participei com 5 números por R$2 e levei R$2.000! Recomendo demais.",
       rating: 5
     },
     {
       name: "Amanda",
-      location: "BA",
+      location: "RJ",
       message: "Fui sorteada com uma CNH grátis! Obrigada pela oportunidade.",
       rating: 5
     }

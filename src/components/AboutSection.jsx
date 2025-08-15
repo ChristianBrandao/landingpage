@@ -7,7 +7,7 @@ const AboutSection = () => {
   const features = [
     {
       icon: <Calendar className="w-8 h-8 text-yellow-500" />,
-      text: "Sorteios semanais com transmissão ao vivo"
+      text: "Sorteios com transmissão ao vivo"
     },
     {
       icon: <Shield className="w-8 h-8 text-yellow-500" />,
@@ -33,7 +33,7 @@ const AboutSection = () => {
             O que é o <span className="text-gradient">Pix da Sorte</span>?
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            O Pix da Sorte é um sorteio 100% legal e transparente onde você pode ganhar R$ 20.000 em dinheiro direto no Pix e uma CNH grátis, apenas participando com um número da sorte a partir de R$ 1.
+            O Pix da Sorte é um sorteio 100% legal e transparente onde você pode ganhar R$ 2.000 em dinheiro direto no Pix e uma CNH grátis, apenas participando com um número da sorte a partir de R$ 0.20.
           </p>
         </motion.div>
 
