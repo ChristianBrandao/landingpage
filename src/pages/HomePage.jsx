@@ -13,7 +13,7 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>Remp da Sorte | Concorra a 2 sorteios R$ 3.000 e CNH Grátis</title>
-        <meta name="description" content="Participe do sorteio Pix da Sorte e concorra a R$ 20.000 em dinheiro e uma CNH grátis. Invista apenas R$ 0,20 e concorra a prêmios incríveis" />
+        <meta name="description" content="Participe do sorteio Remp da Sorte e concorra a R$ 3.000 em dinheiro e uma CNH grátis. Invista apenas R$ 0,25 e concorra a prêmios incríveis" />
       </Helmet>
       <HeroSection />
       <AboutSection />
