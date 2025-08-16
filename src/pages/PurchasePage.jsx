@@ -8,10 +8,10 @@ import { Minus, Plus, Zap, Star, ShieldCheck, Copy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const quantityOptions = [
-    { amount: 10, price: 2, bonus: 'Nenhum', popular: false },
-    { amount: 20, price: 4, bonus: '+ 2x chances', popular: false },
-    { amount: 50, price: 10, bonus: '+ 5x chances', popular: true },
-    { amount: 100, price: 20, bonus: '+ 10x chances', popular: false },
+    { amount: 10, price: 2.5, bonus: 'Nenhum', popular: false },
+    { amount: 20, price: 5, bonus: '+ 2x chances', popular: false },
+    { amount: 50, price: 12.5, bonus: '+ 5x chances', popular: true },
+    { amount: 100, price: 25, bonus: '+ 10x chances', popular: false },
 ];
 
 const PurchasePage = () => {
@@ -25,7 +25,7 @@ const PurchasePage = () => {
   // Função auxiliar para encontrar o preço
   const getPrice = (amount) => {
     const option = quantityOptions.find(opt => opt.amount === amount);
-    return option ? option.price : amount * 0.20; // Preço de 10 centavos por número para quantidade personalizada
+    return option ? option.price : amount * 0.25; // Preço de 15 centavos por número para quantidade personalizada
   };
 
   const handleSelectQuantity = (amount) => {
