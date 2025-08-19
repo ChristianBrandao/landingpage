@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -55,7 +54,7 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Hero Image */}
+          {/* Hero Video */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -63,10 +62,19 @@ const HeroSection = () => {
             className="relative"
           >
             <div className="floating">
-              <img  
+              <video 
                 className="w-full h-auto rounded-2xl shadow-gold border-2 border-yellow-500/50" 
-                alt="Dinheiro em fundo dourado com volante de carro representando CNH"
-               src="https://images.unsplash.com/photo-1677101924267-0936db040823" />
+                autoPlay 
+                loop 
+                muted
+              >
+                {/* Caminho do vídeo extraído da imagem */}
+                <source 
+                  src="https://srv1526-files.hstgr.io/8ce7a0e4536ec7cf/files/public_html/Arquivos/apresentacao/apresentacao.MOV" 
+                  type="video/mp4" 
+                />
+                Seu navegador não suporta a tag de vídeo.
+              </video>
             </div>
             
             {/* Decorative Elements */}
