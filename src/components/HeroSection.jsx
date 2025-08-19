@@ -70,7 +70,7 @@ const HeroSection = () => {
               >
                 {/* Caminho do vídeo extraído da imagem */}
                 <source 
-                  src="https://srv1526-files.hstgr.io/8ce7a0e4536ec7cf/files/public_html/Arquivos/apresentacao/apresentacao.MOV" 
+                  src="https://srv1526-files.hstgr.io/8ce7a0e4536ec7cf/files/public_html/Arquivos/apresentacao.mov" 
                   type="video/mp4" 
                 />
                 Seu navegador não suporta a tag de vídeo.
