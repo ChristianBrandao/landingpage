@@ -54,21 +54,15 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Hero Video */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
-          >
-            <div className="floating">
+          {/* Hero Video - Sem animação */}
+          <div className="relative">
+            <div className="w-full h-auto rounded-2xl shadow-gold border-2 border-yellow-500/50">
               <video 
                 className="w-full h-auto rounded-2xl shadow-gold border-2 border-yellow-500/50" 
                 autoPlay 
                 loop 
                 muted
               >
-                {/* Caminho do vídeo extraído da imagem */}
                 <source 
                   src="https://srv1526-files.hstgr.io/8ce7a0e4536ec7cf/files/public_html/Arquivos/apresentacao.mp4" 
                   type="video/mp4" 
@@ -77,18 +71,10 @@ const HeroSection = () => {
               </video>
             </div>
             
-            {/* Decorative Elements */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full opacity-30"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-4 -left-4 w-12 h-12 bg-orange-400 rounded-full opacity-30"
-            />
-          </motion.div>
+            {/* Decorative Elements - Sem animação */}
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full opacity-30" />
+            <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-orange-400 rounded-full opacity-30" />
+          </div>
         </div>
       </div>
     </section>
