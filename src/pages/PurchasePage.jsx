@@ -129,7 +129,7 @@ const PurchasePage = () => {
   return (
     <>
       <Helmet>
-        <title>Comprar Números - Hemp da Sorte</title>
+        <title>Comprar Números - Remp da Sorte</title>
         <meta name="description" content="Garanta seus números da sorte agora e concorra a R$ 2.000 + CNH grátis. Pagamento rápido e seguro via Pix." />
       </Helmet>
       <div className="bg-black bg-pattern pt-32 pb-24">

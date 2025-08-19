@@ -29,7 +29,7 @@ const PurchaseSection = () => {
 
           <div className="grid md:grid-cols-2 gap-8 text-left text-lg text-gray-200 mb-10">
               <p>✅ <strong>Próximo sorteio:</strong> A definir</p>
-              <p>✅ <strong>Prêmios:</strong> R$ 3.000 e CNH grátis</p>
+              <p>✅ <strong>Prêmios:</strong> R$ 3.000 ou CNH (carro e moto) grátis</p>
               <p>✅ <strong>Pagamento:</strong> Rápido e seguro via Pix</p>
               <p>✅ <strong>Confirmação:</strong> Receba seus números na hora</p>
           </div>

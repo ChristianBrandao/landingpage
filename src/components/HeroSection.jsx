@@ -28,7 +28,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              💰 <span className="text-gradient">R$ 20.000</span> + <span className="text-gradient">CNH GRÁTIS</span> por apenas <span className="text-gradient">R$1</span> no Pix!
+              💰 <span className="text-gradient">R$ 3.000</span> ou <span className="text-gradient">CNH GRÁTIS (carro e moto)</span> por apenas <span className="text-gradient">R$0.25</span> no Pix!
             </motion.h1>
             
             <motion.p 
@@ -37,7 +37,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Concorra a prêmios que mudam sua vida com apenas R$1! Participe agora do Pix da Sorte, o sorteio mais confiável e transparente do Brasil!
+              Concorra a prêmios que mudam sua vida com apenas R$0.25! Participe agora do Remp da Sorte, o sorteio mais confiável e transparente do Brasil!
             </motion.p>
 
             <motion.div
