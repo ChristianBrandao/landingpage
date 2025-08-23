@@ -33,7 +33,7 @@ const OrganizerSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Quem Está por Trás do <span className="text-gradient">Pix da Sorte</span>?
+            Quem Está por Trás do <span className="text-gradient">Remp da Sorte</span>?
           </h2>
         </motion.div>
 
@@ -46,12 +46,12 @@ const OrganizerSection = () => {
             className="space-y-6"
           >
             <div className="bg-gray-900/50 p-8 rounded-2xl border border-yellow-500/30">
-              <h3 className="text-2xl font-bold mb-4 text-white">Lucas Barbosa</h3>
+              <h3 className="text-2xl font-bold mb-4 text-white">Remp</h3>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  E aí, pessoal! Meu nome é REMP, e eu sou o criador do Pix da Sorte. 
-                  Meu objetivo é simples: mudar vidas com prêmios de verdade. 
-                  Já fizemos muitos ganhadores felizes, e nosso compromisso é continuar crescendo e transformando a vida de cada vez mais gente. 
-                  É um projeto sério, feito para você!
+              Fala, pessoal! Eu sou o REMP, criador do Remp da Sorte.
+              Nosso propósito é claro: mudar vidas com prêmios reais.
+              Já tivemos muitos ganhadores felizes, e seguimos firmes no compromisso de crescer cada vez mais e transformar a vida de muita gente.
+              Esse é um projeto sério, feito com carinho e transparência, especialmente para você!
               </p>
               <div className="flex items-center space-x-2 text-gray-300">
                 <MapPin className="w-5 h-5 text-yellow-500" />
@@ -89,8 +89,8 @@ const OrganizerSection = () => {
             <div className="floating">
               <img  
                 className="w-full h-auto rounded-2xl shadow-gold border-2 border-yellow-500/50" 
-                alt="Lucas Barbosa sorrindo com ganhadores do Pix da Sorte"
-               src="https://images.unsplash.com/photo-1689143944836-e9d9cbc50f97" />
+                alt="lOGO"
+               src="Gemini_Generated_Image_njbhlvnjbhlvnjbh.png" />
             </div>
           </motion.div>
         </div>

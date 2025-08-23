@@ -30,10 +30,10 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            O que é o <span className="text-gradient">Pix da Sorte</span>?
+            O que é o <span className="text-gradient">Remp da Sorte</span>?
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            O Pix da Sorte é um sorteio 100% legal e transparente onde você pode ganhar R$ 2.000 em dinheiro direto no Pix e uma CNH grátis, apenas participando com um número da sorte a partir de R$ 0.20.
+            O Remp da Sorte é um sorteio 100% legal e transparente onde você pode ganhar R$ 3.000 em dinheiro direto no Pix ou uma CNH grátis, apenas participando com um número da sorte a partir de R$ 0.25.
           </p>
         </motion.div>
 

@@ -38,7 +38,7 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
             >
               <span className="text-2xl">🟡</span>
-              <span className="text-xl font-bold text-gradient">Pix da Sorte</span>
+              <span className="text-xl font-bold text-gradient">Remp da Sorte</span>
             </motion.div>
           </Link>
 

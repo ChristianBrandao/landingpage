@@ -18,10 +18,10 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <span className="text-3xl">🟡</span>
-              <span className="text-2xl font-bold text-gradient">Pix da Sorte</span>
+              <span className="text-2xl font-bold text-gradient">Remp da Sorte</span>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              O sorteio mais confiável e transparente do Brasil. Transformando vidas com prêmios reais desde 2023.
+              O sorteio mais confiável e transparente do Brasil.
             </p>
           </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-yellow-400" />
-                <span className="text-gray-300">contato@pixdasorte.com.br</span>
+                <span className="text-gray-300">rempdasorte@gmail.com.br</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-400" />
@@ -39,21 +39,13 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Instagram className="w-5 h-5 text-yellow-400" />
-                <span className="text-gray-300">@pixdasorte.oficial</span>
+                <span className="text-gray-300">@rempdasorte.oficial</span>
               </div>
             </div>
           </div>
 
           {/* Legal Info */}
-          <div>
-            <span className="text-lg font-bold mb-4 block text-white">Informações</span>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-yellow-400" />
-                <span className="text-gray-300">CNPJ: 00.000.000/0001-00</span>
-              </div>
-            </div>
-          </div>
+
         </motion.div>
 
         <motion.div
@@ -64,7 +56,7 @@ const Footer = () => {
           className="border-t border-yellow-500/20 mt-12 pt-8 text-center"
         >
           <p className="text-gray-500">
-            © 2025 Pix da Sorte. Todos os direitos reservados. Sorteio 100% legal e transparente.
+            © 2025 Remp da Sorte. Todos os direitos reservados. Sorteio 100% legal e transparente.
           </p>
         </motion.div>
       </div>
