@@ -21,7 +21,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-6xl font-bold leading-tight text-white"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ const HeroSection = () => {
               💰 <span className="text-gradient">R$ 3.000</span> ou <span className="text-gradient">CNH GRÁTIS (carro e moto)</span> por apenas <span className="text-gradient">R$0.25</span> no Pix!
             </motion.h1>
             
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-300 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Button 
+              <Button
                 onClick={handleBuyClick}
                 size="lg"
                 className="gradient-gold text-black font-bold px-8 py-4 rounded-full text-lg hover-lift pulse-gold"
@@ -54,21 +54,17 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Hero Video - Sem animação */}
+          {/* Hero Video - Usando iframe do YouTube */}
           <div className="relative">
-            <div className="w-full h-auto rounded-2xl shadow-gold border-2 border-yellow-500/50">
-              <video 
-                className="w-full h-auto rounded-2xl shadow-gold border-2 border-yellow-500/50" 
-                autoPlay 
-                loop 
-                muted
-              >
-                <source 
-                  src="https://srv1526-files.hstgr.io/8ce7a0e4536ec7cf/files/public_html/Arquivos/apresentacao.mp4" 
-                  type="video/mp4" 
-                />
-                Seu navegador não suporta a tag de vídeo.
-              </video>
+            <div className="w-full aspect-video rounded-2xl shadow-gold border-2 border-yellow-500/50 overflow-hidden">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/fPO-HrEIgjw?autoplay=1&mute=1&loop=1&playlist=fPO-HrEIgjw"
+                title="Apresentação Remp da Sorte"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
             
             {/* Decorative Elements - Sem animação */}
